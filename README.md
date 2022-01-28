@@ -24,3 +24,14 @@ python src/manage.py migrate
 # Run server
 python src/manage.py runserver
 ```
+
+## Formatting code
+```bash
+# Black
+python -m black
+
+# Flake8
+flake8 .
+
+# Isort
+isort .
