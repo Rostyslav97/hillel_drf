@@ -1,4 +1,4 @@
-# Hillel REST API applicstion
+# Hillel REST API application
 
 # Setup
 

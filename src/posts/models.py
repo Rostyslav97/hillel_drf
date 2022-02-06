@@ -3,7 +3,7 @@ from django.db import models
 from django.conf import settings
 
 class TimeStampMixin(models.Model):
-    """Default timestamp mixin"""
+    """Default timestamp mixin class could be used only for the inheritance"""
 
     class Meta:
         abstract = True
