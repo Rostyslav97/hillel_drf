@@ -1,11 +1,11 @@
 from django.urls import path
 
-from .api import PostListAPI, PostRetrieveAPI, PostCreateAPI, PostUpdateAPI, PostDestroyAPI, PostIDListAPI, PostIDRetrieveAPI
+from .api import posts, PostListAPI, PostRetrieveAPI, PostCreateAPI, PostUpdateAPI, PostDestroyAPI, PostIDListAPI, PostIDRetrieveAPI
 
 app_name = "posts"
 
 urlpatterns = [
-    # path("",posts, name="list"),
+    path("",posts, name="list"),
     path("list/", PostListAPI.as_view(), name="posts_list"),
     path("list_id/", PostIDListAPI.as_view(), name="posts_list"),
     path("list/<int:id>/", PostRetrieveAPI.as_view(), name="post_detail"),
