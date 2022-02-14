@@ -1,0 +1,18 @@
+version: "3" 
+services:
+  django:
+    build:
+      context: . 
+      dockerfile: ./Dockerfile.dev 
+    image: hillel_django 
+    container_name: hillel_django
+    env_file: ".env" 
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+  
+  postgres:
+    image: postgres:13.3
+    env_file: ".env"
+    
