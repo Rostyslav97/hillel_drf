@@ -1,2 +1,10 @@
 # SQLite
 db.sqlite3
+
+# Docker
+.devcontainer/
+
+#Pycache
+__pycache__/
+
+#.env

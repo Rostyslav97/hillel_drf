@@ -3,7 +3,7 @@ from django.http import JsonResponse
 from django.urls import include, path
 
 def check(request):
-    data = {"name": "Rostik"}
+    data = {"msg": "Server is available"}
     return JsonResponse(data)
     # return HttpResponse(str(data), content_type="application/json")
 
@@ -12,5 +12,3 @@ urlpatterns = [
     path('health-check/', check),
     path('posts/', include('posts.urls')),
 ]
-
-
