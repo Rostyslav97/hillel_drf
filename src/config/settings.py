@@ -1,4 +1,6 @@
+import sys
 import os
+from os import getenv, path
 from pathlib import Path
 import environ
 
@@ -10,6 +12,8 @@ env = environ.Env(
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Add src folder to the path
+sys.path.append(path.join(BASE_DIR))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
@@ -83,11 +87,11 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": os.getenv("POSTGRES_DB", default="postgres"),
-        "USER": os.getenv("POSTGRES_USER", default="postgres"),
-        "PASSWORD": os.getenv("POSTGRES_PASSWORD", default="postgres"),
-        "HOST": os.getenv("POSTGRES_HOST", default="postgres"),
-        "PORT": os.getenv("POSTGRES_PORT", default=5432),
+        "NAME": getenv("POSTGRES_DB", default="postgres"),
+        "USER": getenv("POSTGRES_USER", default="postgres"),
+        "PASSWORD": getenv("POSTGRES_PASSWORD", default="postgres"),
+        "HOST": getenv("POSTGRES_HOST", default="postgres"),
+        "PORT": getenv("POSTGRES_PORT", default=5432),
     }
 }
 

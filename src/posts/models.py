@@ -21,3 +21,9 @@ class Post(TimeStampMixin):
 
     def __str__(self):
         return self.title
+
+class HealthCheck(TimeStampMixin):
+    counter = models.IntegerField(default=0)
+
+    def __str__(self) -> str:
+        return f"{self.counter}"

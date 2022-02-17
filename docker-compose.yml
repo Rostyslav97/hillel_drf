@@ -1,28 +1,33 @@
-version: "3" 
+version: "3"
+
+
 services:
   django:
     stdin_open: true
     tty: true
     build:
-      context: . 
-      dockerfile: ./Dockerfile.dev 
-    image: hillel_django 
+      context: .
+      dockerfile: ./Dockerfile.dev
+    image: hillel_django
     container_name: hillel_django
-    env_file: ".env" 
+    env_file: ".env"
     ports:
       - "8000:8000"
     depends_on:
       - postgres
     volumes:
       - ./src:/app/src
-  
+
+
   postgres:
     image: postgres:13.3
     env_file: ".env"
     ports:
-      - "3306:3306"
+      - "7000:7000"
     volumes:
       - pg_data:/var/lib/postgresql/data
+
+
 
 volumes:
   pg_data: {}
