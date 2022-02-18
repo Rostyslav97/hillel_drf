@@ -23,6 +23,17 @@ python src/manage.py migrate
 
 # Run server
 python src/manage.py runserver
+
+# Docker
+docker-compose up -d 
+```
+## Celery
+```bash
+# Start Celery
+celery -A src.config worker -l INFO
+
+# Start Celery beat
+celery -A src.config beat -l INFO
 ```
 
 ## Formatting code

@@ -1,8 +1,8 @@
 import sys
-import os
 from os import getenv, path
 from pathlib import Path
 import environ
+from datetime import timedelta
 
 env = environ.Env(
     # set casting, default value
@@ -135,3 +135,15 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# Celery
+CELERY_ACCEPT_CONTENT = ["json"]
+CELERY_TASK_SERIALIZER = "json"
+
+CELERY_BEAT_SCHEDULE = {
+    "beat_check": {
+        "task": "src.config.celery.beat_check",
+        "schedule": timedelta(minutes=5),
+    }
+}
