@@ -1,9 +1,9 @@
-from rest_framework.generics import ListCreateAPIView,RetrieveUpdateDestroyAPIView
+from rest_framework.generics import ListAPIView,RetrieveUpdateDestroyAPIView, CreateAPIView
 from posts.serializers import PostSerializer
-
 from .models import Post
+from config.celery import create_post
 
-class PostListCreateAPI(ListCreateAPIView):
+class PostListAPI(ListAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
 
@@ -11,6 +11,15 @@ class PostRetrieveUpdateDestroyAPI(RetrieveUpdateDestroyAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
     lookup_field = "id"
+
+class PostCreateAPI(CreateAPIView):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+
+    def post(self, request, *args, **kwargs):
+        create_post.delay() 
+        return self.create(request, *args, **kwargs)
+    
 
 # class PostIDListAPI(ListCreateAPIView):
 #     queryset = Post.objects.all()
@@ -23,9 +32,7 @@ class PostRetrieveUpdateDestroyAPI(RetrieveUpdateDestroyAPIView):
 
 
 
-# class PostCreateAPI(CreateAPIView):
-#     queryset = Post.objects.all()
-#     serializer_class = PostSerializer
+
 
 # class PostUpdateAPI(RetrieveUpdateAPIView):
 #     queryset = Post.objects.all()

@@ -1,4 +1,4 @@
-# Hillel REST API application
+# Social Network REST API application
 
 # Setup
 
