@@ -1,7 +1,7 @@
 from rest_framework.generics import ListAPIView,RetrieveUpdateDestroyAPIView, CreateAPIView
 from posts.serializers import PostSerializer
 from .models import Post
-from config.celery import create_post
+from posts.tasks import create_post
 
 class PostListAPI(ListAPIView):
     queryset = Post.objects.all()

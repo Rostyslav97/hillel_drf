@@ -14,7 +14,3 @@ def health_check():
 @app.task
 def beat_check():
     print("Celery beat works fine!")
-
-@app.task
-def create_post():
-    print("Post was created")
