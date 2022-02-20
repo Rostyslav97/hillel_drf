@@ -1,4 +1,4 @@
-# Social Network REST API application
+# Social Network REST API Application
 
 # Setup
 
