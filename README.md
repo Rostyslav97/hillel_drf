@@ -1,4 +1,4 @@
-# Social Network REST API application
+# Social Network REST API Application
 
 # Setup
 
@@ -32,12 +32,6 @@ docker-compose up -d postgres
 
 # Run Rabbit-MQ
 docker-compose up -d rabbit-mq
-
-# Run Django
-docker-compose up -d django
-
-# Run all
-docker-compose up -d 
 ```
 
 ## Celery
