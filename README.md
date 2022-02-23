@@ -15,16 +15,6 @@ pipenv install
 #pipenv install --dev
 pipenv shell
 ```
-
-Run django server
-```bash
-# Run migrations only on a project setup
-python src/manage.py migrate
-
-# Run server
-python src/manage.py runserver
-```
-
 ## Docker
 ```bash
 # Run Postgres
@@ -32,6 +22,15 @@ docker-compose up -d postgres
 
 # Run Rabbit-MQ
 docker-compose up -d rabbit-mq
+```
+
+## Run django server
+```bash
+# Run migrations only on a project setup
+python src/manage.py migrate
+
+# Run server
+python src/manage.py runserver
 ```
 
 ## Celery
