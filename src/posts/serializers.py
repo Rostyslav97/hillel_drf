@@ -5,7 +5,7 @@ from posts.models import Post
 class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
-        exclude = ("id", "created_at", "updated_at")
+        exclude = ("created_at", "updated_at")
         # fields = "__all__"
         # fields = ("id", "title")
 
