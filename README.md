@@ -52,3 +52,4 @@ flake8 .
 
 # Isort
 isort .
+
